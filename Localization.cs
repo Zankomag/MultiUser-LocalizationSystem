@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace Uten.Localization.MultiUser {
-	public static class Localization {
+	public class Localization {
 
 		private static Dictionary<string, Dictionary<string, string>> stringsByCode = new Dictionary<string, Dictionary<string, string>>();
 		public static int LanguageNumber { get => stringsByCode.Count; }
@@ -55,6 +55,7 @@ namespace Uten.Localization.MultiUser {
 		}
 
 		public static bool ContainsLanguage(string langCode) {
+			if (langCode == null) return false;
 			return stringsByCode.ContainsKey(langCode);
 		}
 	}
